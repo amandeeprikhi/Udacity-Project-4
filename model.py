@@ -1,6 +1,7 @@
 import csv
 import cv2
 import numpy as np
+import matplotlib.image as mpimg
 
 lines = []
 correction_factor = 0.2
@@ -20,7 +21,7 @@ for line in lines:
     source_path = line[i]
     filename = source_path.split('/')[-1]
     current_path = 'training_data/IMG/' + filename
-    img = cv2.imread(current_path)
+    img = mpimg.imread(current_path)
     images.append(img)
     if(i == 0):
         #measuring the steering angle for each image 
@@ -37,7 +38,7 @@ for line in lines:
   source_path = line[0]
   filename = source_path.split('/')[-1]
   current_path = 'training_data/IMG/' + filename
-  img = cv2.imread(current_path)
+  img = mpimg.imread(current_path)
     # flipping the images to augment the data
   flipped_image = np.fliplr(img)
   measurement = float(line[3])

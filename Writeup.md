@@ -26,7 +26,7 @@ My project includes the following files:
 * drive.py for driving the car in autonomous mode
 * model.h5 containing a trained convolution neural network 
 * writeup.md and writeup.pdf summarizing the results
-* video.mp4 that is a video recording of the simulator running in Autonomous mode. [Link to the video](https://photos.app.goo.gl/pwyoRTLNDmPV79zK8)
+* video.mp4 that is a video recording of the simulator running in Autonomous mode. [Link to the video](https://photos.app.goo.gl/hTsaePm6CMBHzpeV6)
 
 #### 2. Submission includes functional code
 Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
@@ -42,7 +42,7 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-The model includes RELU layers to introduce nonlinearity (code line 64-66,69-70), and the data is normalized in the model using a Keras lambda layer (code line 61). 
+The model includes RELU layers to introduce nonlinearity (code line 65-67,70-71), and the data is normalized in the model using a Keras lambda layer (code line 62). 
 
 My model uses the network architecture provided by NVIDIA for their self driving car training.
 The complete architecture is being listed below:
@@ -64,13 +64,13 @@ The complete architecture is being listed below:
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 68). 
+The model contains dropout layers in order to reduce overfitting (model.py lines 69). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 80). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 81). The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 78).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 79).
 
 #### 4. Appropriate training data
 
@@ -106,7 +106,7 @@ The final step involved using the network architecture provided by NVIDIA. The a
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 59-75) consisted of a convolution neural network with the following layers and layer sizes:
+The final model architecture (model.py lines 60-76) consisted of a convolution neural network with the following layers and layer sizes:
 |         Layers        |                                                    Remarks                                                   |
 |:---------------------:|:------------------------------------------------------------------------------------------------------------:|
 |      Lambda Layer     |                                      Used in order to normalize the data                                     |
@@ -124,6 +124,8 @@ The final model architecture (model.py lines 59-75) consisted of a convolution n
 | Fully connected Layer |                                             Having 1 output node                                             |
 
 #### 3. Creation of the Training Set & Training Process
+
+In order to compensate for the conflict between the colorspaces in model.py and drive.py, I've used **matplotlib.image as mpimg** to read the images instead of **cv2**. This read the images in teh RGB colorspace for model.py.
 
 To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
 
